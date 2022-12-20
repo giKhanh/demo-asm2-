@@ -12,7 +12,7 @@ app.use('/js', express.static(path.join(__dirname, 'node_modules/jquery/dist')))
 
 
 function formatDate(date) {
-    return new Date(date).toLocaleString("th-TH")
+    return new Date(date).toLocaleString("vi-VN")
 }
 
 app.get('/', async(req, res) => {
