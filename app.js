@@ -40,10 +40,10 @@ app.post('/insert', async(req, res) => { //req chua toan bo thong tin nguoi dung
     const price = req.body.txtPrice
     const url = req.body.txtURL
 
-    if (name.length == 5){
+    if (name.length == 5) {
         var result = await getAll("products")
         res.render('home',{ products: result, nameError: 'have to insert name again '})
-    } else (url.length == 0) {
+    } else if (url.length == 0) {
         var result = await getAll("Products")
         res.render('home', { products: result, picError: 'have to insert Picture!' })
     } if (isNaN(price) == true) {
@@ -92,6 +92,6 @@ app.get('/', (req, res) => {
     res.render('home', { now: formatdate(td) })
 })
 
-const PORT = process.env.PORT || 4000
+const PORT = process.env.PORT || 3000
 app.listen(PORT)
 console.log('server is running!')
