@@ -44,10 +44,10 @@ app.post('/insert', async(req, res) => { //req chua toan bo thong tin nguoi dung
     if (name.length < 5){
         var result = await getAll("Products")
         res.render('home', { products: result,nameError:'have to insert name again'})
-    } else  if (url.length == 0) {
+    }if (url.length == 0) {
         var result = await getAll("Products")
         res.render('home', { products: result, picError: 'have to insert Picture!' })
-    }  else if (isNaN(price) == true) {
+    } if (isNaN(price) == true) {
         var result = await getAll("Products")
         res.render('home', { products: result, pricError: 'have to insert price!' })
     } else {
