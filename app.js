@@ -40,7 +40,7 @@ app.post('/insert', async(req, res) => { //req chua toan bo thong tin nguoi dung
     const price = req.body.txtPrice
     const url = req.body.txtURL
 
-    if (name.length == 5) {
+    if (name.length >= 5) {
         var result = await getAll("products")
         res.render('home',{ products: result, nameError: 'have to insert name again '})
     } else if (url.length == 0) {
