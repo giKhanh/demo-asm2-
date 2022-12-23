@@ -37,17 +37,16 @@ app.get('/views', async(req, res) => {
 
 app.post('/insert', async(req, res) => { //req chua toan bo thong tin nguoi dung ;res thong tin gui ve cho nguoi dung
     const name = req.body.txtName 
-
     const price = req.body.txtPrice
     const url = req.body.txtURL
 
     if (name.length == 5){
         var result = await getAll("products")
         res.render('home',{ products: result, nameError: 'have to insert name again '})
-    }else (url.length == 0) {
+    } else (url.length == 0) {
         var result = await getAll("Products")
         res.render('home', { products: result, picError: 'have to insert Picture!' })
-    } else if (isNaN(price) == true) {
+    } if (isNaN(price) == true) {
         var result = await getAll("Products")
         res.render('home', { products: result, pricError: 'have to insert price!' })
     } else {
