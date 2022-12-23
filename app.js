@@ -40,13 +40,14 @@ app.post('/insert', async(req, res) => { //req chua toan bo thong tin nguoi dung
     const price = req.body.txtPrice
     const url = req.body.txtURL
 
-    if (name.length >= 5) {
-        var result = await getAll("products")
-        res.render('home',{ products: result, nameError: 'have to insert name again '})
-    } else if (url.length == 0) {
+
+    if (name.length < 5){
+        var result = await getAll("Products")
+        res.render('home', { products: result,nameError:'have to insert name again'})
+    } else   (url.length == 0) {
         var result = await getAll("Products")
         res.render('home', { products: result, picError: 'have to insert Picture!' })
-    } if (isNaN(price) == true) {
+    }  if (isNaN(price) == true) {
         var result = await getAll("Products")
         res.render('home', { products: result, pricError: 'have to insert price!' })
     } else {
@@ -57,7 +58,6 @@ app.post('/insert', async(req, res) => { //req chua toan bo thong tin nguoi dung
         res.redirect('/', ) // return home page
     }
 })
-
 app.get('/delete/:id', (req, res) => {
     const idproduct = req.params.id
         //ham xoa product dua tren id
