@@ -60,6 +60,11 @@
                 <input type="text" class="form-control" name="txtURL" id="txtURL">
                 <span style="color: red;">{{picError}}</span>
             </div>
+            <div class="mb-3">
+                <label class="form-label" for="txtURL"> Quantity</label>
+                <input type="text" class="form-control" name="txtQuantity" id="txtQuantity">
+                <span style="color: red;">{{quantityError}}</span>
+            </div>
         <input type="submit" class="btn btn-primary" value="Insert">
     </form>
     </div>
@@ -70,7 +75,9 @@
             {{!-- <th>id</th> --}}
             <th>Name</th>
             <th>Price</th>
+            <th>Quantity</th>
             <th>Picture</th>
+           
             {{!-- <th>Edit</th>
             <th>Delete</th> --}}
         </tr>
@@ -79,6 +86,7 @@
             {{!-- <td>{{_id}}</td> --}}
             <td>{{name}}</td>
             <td>{{price}}</td>
+            <td>{{quantity}}</td>
             <td><img src="{{picURL}}" width="300" height="200" </td>
         </tr>
         {{/each}}

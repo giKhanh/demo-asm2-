@@ -40,6 +40,7 @@
             <th>Name</th>
             <th>Price</th>
             <th>Picture</th>
+            <th>Quantity</th>
             <th>Edit</th>
             <th>Delete</th>
         </tr>
@@ -51,6 +52,7 @@
             <td>{{name}}</td>
             <td>{{price}}</td>
             <td><img src="{{picURL}}" width="300" height="200"> </td>
+            <td>{{quantity}}</td>
             <td><a href="/edit/{{_id}}">edit</a></td>
             <td><a onclick="return confirm('are you want to delete')"  href="/delete/{{_id}}">delete</a></td>
         </tr>

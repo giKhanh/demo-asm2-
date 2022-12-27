@@ -43,6 +43,10 @@
                 <label class="form-label" for="txtPrice"> Price</label>
                 <input type="number" class="form-control" name="txtPrice" id="txtPrice" value="{{product.price}}">
             </div>
+             <div class="mb-3">
+                <label class="form-label" for="txtPrice"> Quantity</label>
+                <input type="number" class="form-control" name="txtQuantity" id="txtQuantity" value="{{product.quantity}}">
+            </div>
             <div class="mb-3">
                 <label class="form-label" for="txtURL"> Picture</label>
                 <input type="text" class="form-control" name="txtURL" value="{{product.url}}">
@@ -57,12 +61,14 @@
                 {{!-- <th style="width:30%">id</th> --}}
                 <th style="width:40%">Name</th>
                 <th style="width:30%">Price</th>
+                <th style="width:30%">quantity</th>
                 <th style="width:60%">Picture</th>
             </tr>
             <tr>
                 {{!-- <td>{{product._id}}</td> --}}
                 <td>{{product.name}}</td>
                 <td>{{product.price}}</td>
+                <td>{{product.quantity}}</td>
                 <td><img src="{{product.picURL}}" width="300" height="200" </td>
             </tr>
         </table>

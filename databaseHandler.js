@@ -10,7 +10,7 @@ async function insertToDB(obj, collectionName) {
     // ham ket noi
     const dbo = await getdbo();
     const result = await dbo.collection(collectionName).insertOne(obj)
-    console.log("gia tri id moi duoc insert la:", result.insertedId.toHexString());
+    console.log("gia tri id moi duoc insert la:", result);
 }
 
 //hien thi toan bo san pham

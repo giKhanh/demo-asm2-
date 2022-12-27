@@ -39,7 +39,7 @@ app.post('/insert', async(req, res) => { //req chua toan bo thong tin nguoi dung
     const name = req.body.txtName 
     const price = req.body.txtPrice
     const url = req.body.txtURL
-
+    const quantity = req.body.txtQuantity
 
     if (name.length < 5){
         var result = await getAll("Products")
@@ -50,10 +50,14 @@ app.post('/insert', async(req, res) => { //req chua toan bo thong tin nguoi dung
     } else if  (isNaN(price) == true) {
         var result = await getAll("Products")
         res.render('home', { products: result, pricError: 'have to insert price!' })
-    } else {
+    } else if (isNaN(quantity)== true){
+        var result = await getAll("Products")
+        res.render('home', { products: result, quantityError: 'have to insert quantity again'})
+    }else {
         //xay dung doi tuong insert
-        const obj = { name: name, price: price, picURL: url } //nhung thong tin can insert
+        const obj = { name: name, price: price, picURL: url ,quantity: quantity } //nhung thong tin can insert
             //xay dung doi tuong insert
+            console.log(obj)
         await insertToDB(obj, "Products") //goi ham de insert vao db , Products from NoSQL
         res.redirect('/', ) // return home page
     }
@@ -69,9 +73,11 @@ app.post('/update', async(req, res) => {
     const id = req.body.txtId
     const name = req.body.txtName
     const price = req.body.txtPrice
+    const quantity = req.body.txtQuantity
     const url = req.body.txtURL
+   
         //ham update
-    let updateValues = { $set: { name: name, price: price, picURL: url } };
+    let updateValues = { $set: { name: name, price: price, picURL: url , quantity: quantity} };
     await updateDocument(id, updateValues, "Products")
     res.redirect('/')
 })
